@@ -7,11 +7,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
+        android:src="@drawable/ic_system" />
 
     <TextView
         android:id="@+id/tittle"
@@ -30,245 +30,250 @@
         android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#000000" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginLeft="60dp"
+        android:text="Verze OS: "
+        android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:text="Verze OS: "
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/osVersionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/osVersionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/osVersionTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/osVersionTextView"
-            android:background="#000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider2"
-            android:layout_marginLeft="60dp"
-            android:text="API: "
-            android:textSize="15sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider2"
+        android:layout_marginLeft="60dp"
+        android:text="API: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/apiLevelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider2"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/apiLevelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider2"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
 
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/apiLevelTextView"
-            android:background="#000000" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider3"
-            android:layout_marginLeft="60dp"
-            android:text="Značka: "
-            android:textSize="15sp" />
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/apiLevelTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
 
 
-        <TextView
-            android:id="@+id/brandTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider3"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/brandTextView"
-            android:background="#000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider4"
-            android:layout_marginLeft="60dp"
-            android:text="Model: "
-            android:textSize="15sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider3"
+        android:layout_marginLeft="60dp"
+        android:text="Značka: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/modelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider4"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/divider5"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/modelTextView"
-            android:background="#000000" />
+    <TextView
+        android:id="@+id/brandTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider3"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider5"
-            android:layout_marginLeft="60dp"
-            android:text="Výrobce: "
-            android:textSize="15sp" />
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/brandTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
 
-
-        <TextView
-            android:id="@+id/vendorTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider5"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/divider6"
-            android:layout_width="270dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/vendorTextView"
-            android:background="#000000" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider6"
-            android:layout_marginLeft="60dp"
-            android:text="Board: "
-            android:textSize="15sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider4"
+        android:layout_marginLeft="60dp"
+        android:text="Model: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/boardTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider6"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/divider7"
-            android:layout_width="270dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/boardTextView"
-            android:background="#000000" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider7"
-            android:layout_marginLeft="60dp"
-            android:text="Zařízení: "
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider4"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/modelTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider5"
+        android:layout_marginLeft="60dp"
+        android:text="Výrobce: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/deviceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider7"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/divider8"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/deviceTextView"
-            android:background="#000000" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider8"
-            android:layout_marginLeft="60dp"
-            android:text="ID buildu: "
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/vendorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider5"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/vendorTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider6"
+        android:layout_marginLeft="60dp"
+        android:text="Board: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/buildIDTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider8"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
-        <View
-            android:id="@+id/divider9"
-            android:layout_width="270dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/buildIDTextView"
-            android:layout_centerHorizontal="true"
-            android:background="#000000" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider9"
-            android:layout_marginLeft="60dp"
-            android:text="Sériové číslo: "
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/boardTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider6"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/boardTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider7"
+        android:layout_marginLeft="60dp"
+        android:text="Zařízení: "
+        android:textSize="15sp" />
 
 
-        <TextView
-            android:id="@+id/serialNumberTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/divider9"
-            android:layout_marginLeft="170dp"
-            android:text="\?"
-            android:textSize="15sp" />
+    <TextView
+        android:id="@+id/deviceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider7"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
 
-    </RelativeLayout>
+    <View
+        android:id="@+id/divider8"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/deviceTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider8"
+        android:layout_marginLeft="60dp"
+        android:text="ID buildu: "
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/buildIDTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider8"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="270dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/buildIDTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider9"
+        android:layout_marginLeft="60dp"
+        android:text="Sériové číslo: "
+        android:textSize="15sp" />
+
+
+    <TextView
+        android:id="@+id/serialNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider9"
+        android:layout_marginLeft="170dp"
+        android:text="\?"
+        android:textSize="15sp" />
 
 
 </RelativeLayout>

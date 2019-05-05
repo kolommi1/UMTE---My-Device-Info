@@ -18,7 +18,6 @@ class SystemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_system)
         title = "Systém"
-        supportActionBar?.setIcon(android.R.drawable.sym_def_app_icon)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val text = Build.VERSION.RELEASE + " ("+ getCodeName() +")"
