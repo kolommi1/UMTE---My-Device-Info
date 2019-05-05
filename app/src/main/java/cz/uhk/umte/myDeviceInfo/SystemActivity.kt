@@ -12,7 +12,9 @@ import kotlinx.android.synthetic.main.activity_system.*
 
 class SystemActivity : AppCompatActivity() {
 
-    private val PERMISSION_REQUEST_READ_PHONE_STATE:Int = 1
+    private object Constants {
+        const val PERMISSION_REQUEST_READ_PHONE_STATE:Int = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +40,7 @@ class SystemActivity : AppCompatActivity() {
             // user canceled permission - ask for permission
             if ( ContextCompat.checkSelfPermission( this, android.Manifest.permission.ACCESS_COARSE_LOCATION ) != PackageManager.PERMISSION_GRANTED ) {
                 ActivityCompat.requestPermissions( this,  arrayOf(android.Manifest.permission.READ_PHONE_STATE) ,
-                    PERMISSION_REQUEST_READ_PHONE_STATE )
+                    Constants.PERMISSION_REQUEST_READ_PHONE_STATE )
             }
             // permissions are granted
             else{
@@ -77,7 +79,7 @@ class SystemActivity : AppCompatActivity() {
                                             permissions: Array<String>, grantResults: IntArray) {
         when (requestCode) {
 
-            PERMISSION_REQUEST_READ_PHONE_STATE -> {
+            Constants.PERMISSION_REQUEST_READ_PHONE_STATE -> {
                 // permission granted
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
                     serialNumberTextView.text = Build.getSerial()

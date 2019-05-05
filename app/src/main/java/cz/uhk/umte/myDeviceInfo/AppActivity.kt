@@ -10,9 +10,14 @@ class AppActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app)
         title = "Aplikace"
-        supportActionBar?.setIcon(android.R.drawable.sym_def_app_icon)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        if(savedInstanceState == null){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, AppListFragment())
+                .commitAllowingStateLoss()
+        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
