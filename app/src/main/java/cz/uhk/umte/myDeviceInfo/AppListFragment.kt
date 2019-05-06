@@ -11,9 +11,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_app_list.*
 import android.content.pm.PackageInfo
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.widget.ImageView
+import android.text.Spannable
+import android.icu.lang.UProperty.INT_START
+import android.text.SpannableStringBuilder
+
+
 
 class AppListFragment : Fragment() {
 
@@ -110,10 +116,15 @@ class AppListFragment : Fragment() {
 
                 imageView.setImageDrawable(icon)
                 if(packageCheckBox.isChecked) {
-                    val appPackage = appName.toString() + " (" +  app.packageName + ")"
-                    textView.text = appPackage
+                    val boldText = SpannableStringBuilder(appName.toString() + " (" +  app.packageName + ")")
+                    boldText.setSpan(
+                        android.text.style.StyleSpan(android.graphics.Typeface.BOLD),
+                        0, appName.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    textView.typeface = Typeface.DEFAULT
+                    textView.text = boldText
                 }
                 else {
+                    textView.typeface = Typeface.DEFAULT_BOLD
                     textView.text = appName
                 }
             }

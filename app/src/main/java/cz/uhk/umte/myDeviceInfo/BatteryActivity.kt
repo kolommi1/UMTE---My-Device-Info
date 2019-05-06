@@ -31,25 +31,25 @@ class BatteryActivity : AppCompatActivity() {
            applicationContext.registerReceiver(receiver, ifilter)
         }
 
-        val level = batteryStatus?.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)?: 0
-        val scale = batteryStatus?.getIntExtra(BatteryManager.EXTRA_SCALE, 0)?: 0
-        var temp = level.div(scale).times(100).toString() + " %"
+        val level:Int = batteryStatus!!.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)
+        val scale:Int = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, 100)
+        var temp = level.times(100).div(scale).toString() + " %"
         levelTextView.text = temp
 
-        val chargingStatus: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_STATUS, -1) ?: -1
-        val chargePlug: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1) ?: -1
+        val chargingStatus: Int = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
+        val chargePlug: Int = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
         stateTextView.text = chargePlugToString(chargingStatus, chargePlug)
 
-        val temperature: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_TEMPERATURE,0)?:0
+        val temperature: Int = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE,0)
         temp = temperature.toFloat().div(10).toString() + " °C"
         tempTextView.text = temp
 
-        val voltage: Int = batteryStatus?.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0)?: 0
+        val voltage: Int = batteryStatus.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0)
         temp = voltage.toFloat().div(1000).toString() + " V"
         voltageTextView.text = temp
-        technologyTextView.text = batteryStatus?.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY)
+        technologyTextView.text = batteryStatus.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY)
 
-        val health = batteryStatus?.getIntExtra(BatteryManager.EXTRA_HEALTH, 0)?: 0
+        val health = batteryStatus.getIntExtra(BatteryManager.EXTRA_HEALTH, 0)
         techStateTextView.text = batteryHealthToString(health)
     }
 
@@ -107,23 +107,20 @@ class BatteryActivity : AppCompatActivity() {
    inner class PowerReceiver: BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
+            val mIntent: Intent ?= context.applicationContext.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+            val level = mIntent!!.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)
+            val scale = mIntent.getIntExtra(BatteryManager.EXTRA_SCALE, 100)
+            val temp = level.times(100).div(scale).toString() + " %"
+            levelTextView.text = temp
 
             when(intent.action) {
                 // power disconected/conected
                Intent.ACTION_POWER_CONNECTED, Intent.ACTION_POWER_DISCONNECTED  -> {
-                    val  mIntent: Intent ?= context.applicationContext.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
-                    val chargingStatus: Int = mIntent?.getIntExtra(BatteryManager.EXTRA_STATUS, -1)?: -1
-                    val chargePlug: Int = mIntent?.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)?: -1
+                    val chargingStatus: Int = mIntent.getIntExtra(BatteryManager.EXTRA_STATUS, -1)
+                    val chargePlug: Int = mIntent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1)
                     stateTextView.text = chargePlugToString(chargingStatus, chargePlug)
                }
-               // battery changed
-               Intent.ACTION_BATTERY_CHANGED -> {
-                    val mIntent: Intent ?= context.applicationContext.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
-                    val level = mIntent?.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)?: 0
-                    val scale = mIntent?.getIntExtra(BatteryManager.EXTRA_SCALE, 0)?: 0
-                    val temp = level.div(scale).times(100).toString() + " %"
-                    levelTextView.text = temp
-               }
+
             }
         }
     }
