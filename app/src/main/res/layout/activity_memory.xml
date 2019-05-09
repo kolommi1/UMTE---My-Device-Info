@@ -1,7 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:orientation="vertical"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_memory" />
+
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/imageView"
+        android:text="Paměti"
+        android:textSize="25sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000" />
+
+    <TextView
+        android:id="@+id/internalMemoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="Interní paměť"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/internalMemoryImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/internalMemoryLabel"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
+        app:srcCompat="@drawable/ic_phone" />
+
+    <TextView
+        android:id="@+id/internalMemoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/internalMemoryLabel"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/internalMemoryImageView"
+        android:text="použito: \? GB z \? GB" />
+
+    <ProgressBar
+        android:id="@+id/internalMemoryProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/internalMemoryTextView"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/internalMemoryImageView"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/freeInternalMemoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/internalMemoryProgressBar"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/internalMemoryImageView"
+        android:text="volná: \? GB" />
+
+    <TextView
+        android:id="@+id/sdCardLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/freeInternalMemoryTextView"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="SD Karta"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/sdCardImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/sdCardLabel"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        app:srcCompat="@drawable/ic_sdcard" />
+
+    <TextView
+        android:id="@+id/sdCardTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sdCardLabel"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/sdCardImageView"
+        android:text="použito: \? GB z \? GB" />
+
+    <ProgressBar
+        android:id="@+id/sdCardProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sdCardTextView"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/sdCardImageView"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/freeSdCardTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sdCardProgressBar"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/sdCardImageView"
+        android:text="volná: \? GB" />
+
+    <TextView
+        android:id="@+id/ramMemoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/freeSdCardTextView"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:text="RAM"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ramImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/ramMemoryLabel"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        app:srcCompat="@drawable/ic_ram" />
+
+    <TextView
+        android:id="@+id/ramMemoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ramMemoryLabel"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/ramImageView"
+        android:text="použito: \? GB z \? GB" />
+
+    <ProgressBar
+        android:id="@+id/ramMemoryProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ramMemoryTextView"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/ramImageView"
+        android:progress="1" />
+
+    <TextView
+        android:id="@+id/freeRAMMemoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ramMemoryProgressBar"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/ramImageView"
+        android:text="volná: \? GB" />
+
+</RelativeLayout>

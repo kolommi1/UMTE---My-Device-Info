@@ -4,6 +4,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 
+fun Double.format(digits: Int) = java.lang.String.format("%.${digits}f", this)
+
 fun <T> Spinner.onItemSelected(listener: (item: T) -> Unit){
     this.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
         override fun onNothingSelected(p0: AdapterView<*>?) {

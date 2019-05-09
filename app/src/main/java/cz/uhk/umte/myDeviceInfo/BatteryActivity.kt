@@ -71,7 +71,7 @@ class BatteryActivity : AppCompatActivity() {
         val temp: String
         when (chargingStatus) {
             BatteryManager.BATTERY_STATUS_CHARGING -> temp = "Nabíjí se ($chargeType)"
-            BatteryManager.BATTERY_STATUS_DISCHARGING -> temp = "Vybíjí se ($chargeType)"
+            BatteryManager.BATTERY_STATUS_DISCHARGING -> temp = "Vybíjí se"
             BatteryManager.BATTERY_STATUS_FULL -> temp = "Plně nabitá ($chargeType)"
             BatteryManager.BATTERY_STATUS_UNKNOWN -> temp = "Neznámý"
             BatteryManager.BATTERY_STATUS_NOT_CHARGING -> temp = "Nenabíjí se"
@@ -107,6 +107,9 @@ class BatteryActivity : AppCompatActivity() {
    inner class PowerReceiver: BroadcastReceiver() {
 
         override fun onReceive(context: Context, intent: Intent) {
+            // ACTION_POWER_CONECTED is called before ACTION_BATTERY_CHANGED
+            // wait until ACTION_BATTERY_CHANGED contains updated data
+            Thread.sleep(500)
             val mIntent: Intent ?= context.applicationContext.registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
             val level = mIntent!!.getIntExtra(BatteryManager.EXTRA_LEVEL, 0)
             val scale = mIntent.getIntExtra(BatteryManager.EXTRA_SCALE, 100)

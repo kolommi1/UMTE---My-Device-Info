@@ -35,15 +35,16 @@ class SensorActivity : AppCompatActivity(), SensorEventListener {
 
         spinner.onItemSelected<String>{
             sensorName=it
-            xTextView.text = "0.0" // X
-            yTextView.text = "0.0" // Y
-            zTextView.text = "0.0" // Z
+            xTextView.text = "Aktivujte sensor pro zobrazení nasnímaných hodnot" // X
+            yTextView.text = "" // Y
+            zTextView.text = "" // Z
 
             for(sensor in sensorList){
                 if(sensor.name == it){
                     powerTextView.text = "${sensor.power} mA"
                     vendorTextView.text = sensor.vendor
                     versionTextView.text = sensor.version.toString()
+
                 }
             }
         }
@@ -65,8 +66,12 @@ class SensorActivity : AppCompatActivity(), SensorEventListener {
         e?.let{
             if(it.sensor.name == sensorName){
                 xTextView.text = "X:   ${it.values[0]}" // X
-                yTextView.text = "Y:   ${it.values[1]}" // Y
-                zTextView.text = "Z:   ${it.values[2]}" // Z
+                if(it.values.size > 1){
+                    yTextView.text = "Y:   ${it.values[1]}" // Y
+                }
+                if(it.values.size > 2){
+                    zTextView.text = "Z:   ${it.values[2]}" // Z
+                }
             }
         }
     }

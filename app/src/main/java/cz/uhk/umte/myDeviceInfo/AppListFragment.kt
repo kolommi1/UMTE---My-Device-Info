@@ -16,7 +16,6 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.widget.ImageView
 import android.text.Spannable
-import android.icu.lang.UProperty.INT_START
 import android.text.SpannableStringBuilder
 
 
@@ -57,6 +56,23 @@ class AppListFragment : Fragment() {
         }
 
         userCheckBox.isChecked = true
+    }
+
+
+    private fun categoryToString(category: Int): String {
+        var temp = "Kategorie: "
+        when(category){
+            ApplicationInfo.CATEGORY_AUDIO -> temp += "Audio"
+            ApplicationInfo.CATEGORY_GAME -> temp += "Hry"
+            ApplicationInfo.CATEGORY_IMAGE -> temp += "Obrázky"
+            ApplicationInfo.CATEGORY_MAPS -> temp += "Mapy"
+            ApplicationInfo.CATEGORY_NEWS -> temp += "Novinky"
+            ApplicationInfo.CATEGORY_PRODUCTIVITY -> temp += "Produktivita"
+            ApplicationInfo.CATEGORY_SOCIAL -> temp += "Social"
+            ApplicationInfo.CATEGORY_VIDEO -> temp += "Video"
+            else -> return ""
+        }
+        return temp
     }
 
     private fun filterApps() {
@@ -111,7 +127,7 @@ class AppListFragment : Fragment() {
                 // display application category on newer phones
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     val categoryView = item.findViewById<TextView>(R.id.categoryTextView)
-                    categoryView.text = app.applicationInfo.category.toString()
+                    categoryView.text =categoryToString(app.applicationInfo.category)
                 }
 
                 imageView.setImageDrawable(icon)
