@@ -21,8 +21,8 @@
             android:id="@+id/centre_marker"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="-150dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="-100dp"
             android:layout_centerHorizontal="true"/>
     <Button
             android:id="@+id/systemButton"

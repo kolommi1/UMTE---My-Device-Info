@@ -38,17 +38,19 @@ class MemoryActivity : AppCompatActivity() {
         // SD card
         val externalStorageFiles = ContextCompat.getExternalFilesDirs(this, null)
         for (file in externalStorageFiles) {
-            if (file.exists()) {
-                // is removable
-                if (Environment.isExternalStorageRemovable(file)) {
-                    count +=1
-                    stat = StatFs(file.path)
-                    totalMemory = stat.totalBytes / 1048576L / 1024.0
-                    availableMemory = stat.availableBytes / 1048576L / 1024.0
-                    usedMemory = totalMemory - availableMemory
-                    progres = usedMemory.div(totalMemory).times(100).toInt()
-                    temp += "použito: ${usedMemory.format(2)} GB z ${totalMemory.format(2)} GB "
-                    tempFree += "volná: ${availableMemory.format(2)} GB "
+            if(file!=null){
+                if (file.exists()) {
+                    // is removable
+                    if (Environment.isExternalStorageRemovable(file)) {
+                        count +=1
+                        stat = StatFs(file.path)
+                        totalMemory = stat.totalBytes / 1048576L / 1024.0
+                        availableMemory = stat.availableBytes / 1048576L / 1024.0
+                        usedMemory = totalMemory - availableMemory
+                        progres = usedMemory.div(totalMemory).times(100).toInt()
+                        temp += "použito: ${usedMemory.format(2)} GB z ${totalMemory.format(2)} GB "
+                        tempFree += "volná: ${availableMemory.format(2)} GB "
+                    }
                 }
             }
         }

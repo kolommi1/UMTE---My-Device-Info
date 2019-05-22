@@ -30,7 +30,7 @@ class CPUActivity : AppCompatActivity() {
             val reader = RandomAccessFile(filePath, "r")
             val value = reader.readLine().toLong() / 1000
             reader.close()
-            frequency = "$value"
+            frequency = "$value MHz"
 
         } catch (e: Exception) {
             Log.e("CPUactivity","Couldn't read core frequency")
@@ -50,7 +50,7 @@ class CPUActivity : AppCompatActivity() {
         for (i in 0 until cpuCores){
             map = HashMap()
             map["label"] = "Jádro $i: "
-            map["value"] = "${getCoreFrequency(i)} Mhz "
+            map["value"] = getCoreFrequency(i)
             list.add(map)
         }
         map = HashMap()
